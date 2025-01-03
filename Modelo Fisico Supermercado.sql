@@ -1,5 +1,3 @@
--- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -48,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `db_supermercado`.`tbl_produto` (
   `descricao` VARCHAR(245) NULL,
   `id_fornecedor` INT NOT NULL,
   `id_departamento` INT NOT NULL,
-  `tbl_produtocol` VARCHAR(45) NULL,
   PRIMARY KEY (`id_produtos`),
   INDEX `fk_tbl_produto_tbl_fornecedor_idx` (`id_fornecedor` ASC),
   INDEX `fk_tbl_produto_tbl_departamento1_idx` (`id_departamento` ASC),
@@ -87,6 +84,9 @@ CREATE TABLE IF NOT EXISTS `db_supermercado`.`tbl_colaborador` (
   `cpf` VARCHAR(45) NOT NULL,
   `data_admissao` DATE NOT NULL,
   `funcao` VARCHAR(45) NOT NULL,
+  `estado_civil` VARCHAR(45) NOT NULL,
+  `data_de_nascimento` VARCHAR(45) NOT NULL,
+  `nacionalidade` VARCHAR(45) NOT NULL,
   `reservista` VARCHAR(45) NOT NULL,
   `matricula` VARCHAR(45) NOT NULL,
   `id_departamento` INT NOT NULL,
@@ -198,6 +198,8 @@ CREATE TABLE IF NOT EXISTS `db_supermercado`.`tbl_endereco` (
   `numero` VARCHAR(45) NOT NULL,
   `bairro` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  `pais` VARCHAR(45) NOT NULL,
   `id_fornecedor` INT NOT NULL,
   `id_cliente` INT NOT NULL,
   `id_colaborador` INT NOT NULL,
